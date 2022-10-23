@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { Status, StatusColor } from '../../enums/status.enum';
 import { Character } from '../../models/character.model';
+import { getParsedEpisodes } from '../../utils/character.utils';
 import {
 	StyledStatusColor,
 	StyledStatusText,
@@ -13,11 +14,6 @@ import {
 	StyledCardTitle,
 	StyledSectionValue,
 } from './character-card.style';
-
-const getParsedEpisodes = (list: string[]): string[] => {
-	const listToDisplay = list?.map((episode: string) => episode.split('/').slice(-1)[0]);
-	return listToDisplay.filter(item => item && item.length);
-};
 
 const getPropertySection = (title: string, value: string): JSX.Element => (
 	<StyledPropertySection>
