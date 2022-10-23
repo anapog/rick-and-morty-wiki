@@ -1,10 +1,10 @@
 import { Navigate, BrowserRouter, Route, Routes } from 'react-router-dom';
+import { ApolloProvider } from '@apollo/client';
 import { StyledContainer, StyledHeader, StyledContent, StyledLogo } from './home.style';
 import logo from './rickAndMorty.png';
 import CharacterList from '../character-list/character-list';
 import CharacterDetail from '../character-detail/character-detail';
-
-// TODO request all data
+import { client } from '../../services/apollo-client';
 
 const Home = () => (
 	<StyledContainer>
@@ -12,13 +12,15 @@ const Home = () => (
 			<StyledLogo src={logo} alt="Rick and Morty logo" />
 		</StyledHeader>
 		<StyledContent>
-			<BrowserRouter>
-				<Routes>
-					<Route path="/" element={<CharacterList />} />
-					<Route path="character/:id" element={<CharacterDetail />} />
-					<Route path='*' element={<Navigate to='/' replace />} />
-				</Routes>
-			</BrowserRouter>
+			<ApolloProvider client={client}>
+				<BrowserRouter>
+					<Routes>
+						<Route path="/" element={<CharacterList />} />
+						<Route path="character/:id" element={<CharacterDetail />} />
+						<Route path="*" element={<Navigate to="/" replace />} />
+					</Routes>
+				</BrowserRouter>
+			</ApolloProvider>
 		</StyledContent>
 	</StyledContainer>
 );

@@ -1,7 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { Status, StatusColor } from '../../enums/status.enum';
 import { Character } from '../../models/character.model';
-import { getParsedEpisodes } from '../../utils/character.utils';
 import {
 	StyledStatusColor,
 	StyledStatusText,
@@ -22,9 +21,8 @@ const getPropertySection = (title: string, value: string): JSX.Element => (
 	</StyledPropertySection>
 );
 
-const CharacterCard = ({ id, episode, image, name, status, species, location }: Character) => {
+const CharacterCard = ({ id, name, status, species, gender, image, episode }: Character) => {
 	const navigate = useNavigate();
-	const episodes = getParsedEpisodes(episode);
 
 	const navigateToDetail = () => {
 		navigate(`/character/${id}`);
@@ -43,11 +41,9 @@ const CharacterCard = ({ id, episode, image, name, status, species, location }: 
 						{status} - {species}
 					</StyledStatusText>
 				</StyledCardStatus>
-				{getPropertySection('Location:', location?.name ?? 'Unknown')}
-				{getPropertySection(
-					`${episodes?.length > 1 ? 'Episodes' : 'Episode'}:`,
-					episodes.length ? episodes.join(', ') : 'Unknown'
-				)}
+				{getPropertySection('Gender:', gender)}
+				{getPropertySection('Episodes:', `${episode?.length}` ?? 'Unknown')}
+				{getPropertySection('Since:', `${episode[0].air_date}`)}
 			</StyledCharacterDescription>
 		</StyledCharacterCard>
 	);

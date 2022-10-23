@@ -12,6 +12,7 @@ export const StyledCharacterCard = styled.div`
 export const StyledCharacterAvatar = styled.img`
 	width: 100%;
 	height: auto;
+	border-radius: 50%;
 `;
 
 export const StyledCharacterDescription = styled.div`
@@ -31,6 +32,7 @@ export const StyledCardStatus = styled.div`
 	display: flex;
 	flex-direction: row;
 	align-items: center;
+	margin-bottom: ${rem(10)};
 `;
 
 export const StyledStatusColor = styled.div`
@@ -48,6 +50,7 @@ export const StyledStatusText = styled.p`
 export const StyledPropertySection = styled.div`
 	display: flex;
 	flex-direction: row;
+	justify-content: space-between;
 	padding-top: ${rem(8)};
 
 	@media (min-width: 481px) {

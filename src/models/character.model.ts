@@ -3,18 +3,24 @@ export interface Character {
 	name: string;
 	status: string;
 	species: string;
-	type: string;
+	type?: string;
 	gender: string;
-	origin: {
-		name: string;
-		url: string;
-	};
-	location: {
-		name: string;
-		url: string;
-	};
+	origin?:  Location;
+	location?: Location;
 	image: string;
-	episode: string[];
-	url: string;
-	created: string;
+	created?: string;
+	episode: Episode[];
+}
+
+export interface Episode {
+	name?: string;
+	episode?: string;
+	air_date: string;
+}
+
+export interface Location {
+	name: string;
+	type: string;
+	dimension: string;
+	residents: Character[];
 }

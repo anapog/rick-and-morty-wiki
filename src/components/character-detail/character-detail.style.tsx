@@ -24,7 +24,6 @@ export const StyledDetailContent = styled.div`
 	margin: ${rem(10)} 0;
 
 	@media (min-width: 769px) {
-		flex-direction: row;
 		margin: ${rem(20)} 0;
 	}
 `;
@@ -46,12 +45,13 @@ export const StyledInformation = styled.div`
 	display: flex;
 	flex-direction: column;
 	padding-top: ${rem(36)};
-    font-family: 'Inter';
+	font-family: 'Inter';
+`;
 
-	@media (min-width: 769px) {
-		padding-top: 0;
-        padding-left: ${rem(36)};
-	}
+export const StyledInformationHeader = styled.div`
+	display: flex;
+    flex-direction: column;
+	align-items: center;
 `;
 
 export const StyledCardTitle = styled.p`
@@ -62,16 +62,15 @@ export const StyledCardTitle = styled.p`
 
 export const StyledPropertySection = styled.div`
 	display: flex;
-	flex-direction: row;
 	padding-top: ${rem(20)};
-	gap: ${rem(16)};
-	align-items: center;
+	gap: ${rem(8)};
 `;
 
 export const StyledCardStatus = styled.div`
 	display: flex;
 	flex-direction: row;
 	align-items: center;
+	margin: ${rem(4)} 0;
 `;
 
 export const StyledStatusColor = styled.div`
@@ -86,6 +85,11 @@ export const StyledStatusText = styled.p`
 	font-size: ${rem(18)};
 `;
 
+export const StyleCardSubtitle = styled.p`
+	margin: ${rem(4)} 0;
+	font-size: ${rem(18)};
+`;
+
 export const StyledSectionProperty = styled.div`
 	font-size: ${rem(16)};
 	color: #666666;
@@ -94,4 +98,30 @@ export const StyledSectionProperty = styled.div`
 export const StyledSectionValue = styled.div`
 	margin: 0;
 	font-size: ${rem(16)};
+	text-transform: capitalize;
+`;
+
+export const StyledDataSection = styled.div`
+	margin-top: ${rem(30)};
+`;
+
+export const StyledEpisodesSection = styled.div`
+	display: flex;
+	flex-direction: column;
+	gap: ${rem(16)};
+`;
+
+export const StyledEpisodesContainer = styled.div`
+	display: grid;
+	grid-template-columns: repeat(1, 1fr);
+	column-gap: ${rem(20)};
+    row-gap: ${rem(15)};
+
+	@media (min-width: 1025px) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	@media (min-width: 1201px) {
+		grid-template-columns: repeat(3, 1fr);
+	}
 `;
