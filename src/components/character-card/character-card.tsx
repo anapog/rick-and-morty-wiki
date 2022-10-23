@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import { Status, StatusColor } from '../../enums/status.enum';
 import { Character } from '../../models/character.model';
 import {
@@ -25,11 +26,16 @@ const getPropertySection = (title: string, value: string): JSX.Element => (
 	</StyledPropertySection>
 );
 
-const CharacterCard = ({ episode, image, name, status, species, location }: Character) => {
+const CharacterCard = ({ id, episode, image, name, status, species, location }: Character) => {
+	const navigate = useNavigate();
 	const episodes = getParsedEpisodes(episode);
 
+	const navigateToDetail = () => {
+		navigate(`/character/${id}`);
+	};
+
 	return (
-		<StyledCharacterCard>
+		<StyledCharacterCard onClick={navigateToDetail}>
 			<StyledCharacterAvatar src={image} alt="Character image" />
 			<StyledCharacterDescription>
 				<StyledCardTitle>{name}</StyledCardTitle>

@@ -6,6 +6,7 @@ export const StyledCharacterCard = styled.div`
 	flex-direction: column;
 	align-items: center;
 	font-family: 'Inter';
+	cursor: pointer;
 `;
 
 export const StyledCharacterAvatar = styled.img`

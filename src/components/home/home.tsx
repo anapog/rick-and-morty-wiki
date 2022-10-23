@@ -1,13 +1,8 @@
-import {
-	StyledContainer,
-	StyledHeader,
-	StyledContent,
-	StyledListControl,
-	StyledLogo,
-	StyledTableTitle,
-} from './home.style';
+import { Navigate, BrowserRouter, Route, Routes } from 'react-router-dom';
+import { StyledContainer, StyledHeader, StyledContent, StyledLogo } from './home.style';
 import logo from './rickAndMorty.png';
 import CharacterList from '../character-list/character-list';
+import CharacterDetail from '../character-detail/character-detail';
 
 // TODO request all data
 
@@ -16,16 +11,14 @@ const Home = () => (
 		<StyledHeader>
 			<StyledLogo src={logo} alt="Rick and Morty logo" />
 		</StyledHeader>
-		{/* TODO could include filters on the left (Status, Gender, Species) */}
 		<StyledContent>
-			<StyledTableTitle>Characters</StyledTableTitle>
-			<StyledListControl>
-				{/* TODO search component over list with X to clear all content. Also under search number of total items */}
-				<p>Search...</p>
-				{/* TODO include order by */}
-				<p>Order by</p>
-			</StyledListControl>
-			<CharacterList />
+			<BrowserRouter>
+				<Routes>
+					<Route path="/" element={<CharacterList />} />
+					<Route path="character/:id" element={<CharacterDetail />} />
+					<Route path='*' element={<Navigate to='/' replace />} />
+				</Routes>
+			</BrowserRouter>
 		</StyledContent>
 	</StyledContainer>
 );

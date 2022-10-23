@@ -18,32 +18,14 @@ export const StyledHeader = styled.div`
 
 export const StyledLogo = styled.img`
 	height: auto;
-    width: 100%;
-    max-width: ${rem(340)};
+	width: 100%;
+	max-width: ${rem(340)};
 `;
 
 export const StyledContent = styled.div`
 	display: flex;
 	flex-direction: column;
-    margin: auto;
+	margin: auto;
 	max-width: 85rem;
 	width: 100%;
-`;
-
-export const StyledTableTitle = styled.h1`
-	align-self: center;
-	font-family: 'Poppins';
-	font-size: ${rem(24)};
-
-	@media (min-width: 769px) {
-		align-self: flex-start;
-		font-size: ${rem(32)};
-  	}
-`;
-
-export const StyledListControl = styled.div`
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding-bottom: ${rem(10)};
 `;
