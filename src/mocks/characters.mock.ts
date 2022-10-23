@@ -1,6 +1,6 @@
 export const CHARACTERS = [
 	{
-		id: 361,
+		id: 0,
 		name: 'Toxic Rick',
 		status: 'Dead',
 		species: 'Humanoid',
@@ -20,7 +20,7 @@ export const CHARACTERS = [
 		created: '2018-01-10T18:20:41.703Z',
 	},
 	{
-		id: 2,
+		id: 1,
 		name: 'Morty Smith',
 		status: 'Alive',
 		species: 'Human',
@@ -40,7 +40,7 @@ export const CHARACTERS = [
 		created: '2017-11-04T18:50:21.651Z',
 	},
 	{
-		id: 1,
+		id: 2,
 		name: 'Rick Sanchez',
 		status: 'Alive',
 		species: 'Human',
@@ -60,7 +60,7 @@ export const CHARACTERS = [
 		created: '2017-11-04T18:48:46.250Z',
 	},
 	{
-		id: 183,
+		id: 3,
 		name: 'Johnny Depp',
 		status: 'Alive',
 		species: 'Human',
@@ -80,7 +80,7 @@ export const CHARACTERS = [
 		created: '2017-12-29T18:51:29.693Z',
 	},
 	{
-		id: 2,
+		id: 4,
 		name: 'Morty Smith',
 		status: 'Alive',
 		species: 'Human',
@@ -100,7 +100,7 @@ export const CHARACTERS = [
 		created: '2017-11-04T18:50:21.651Z',
 	},
 	{
-		id: 361,
+		id: 5,
 		name: 'Toxic Rick',
 		status: 'Dead',
 		species: 'Humanoid',
@@ -120,7 +120,7 @@ export const CHARACTERS = [
 		created: '2018-01-10T18:20:41.703Z',
 	},
 	{
-		id: 183,
+		id: 6,
 		name: 'Johnny Depp',
 		status: 'Alive',
 		species: 'Human',
@@ -141,7 +141,7 @@ export const CHARACTERS = [
 	},
 
 	{
-		id: 1,
+		id: 7,
 		name: 'Rick Sanchez',
 		status: 'Alive',
 		species: 'Human',

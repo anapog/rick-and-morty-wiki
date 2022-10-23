@@ -1,3 +1,5 @@
+import { useParams } from 'react-router-dom';
+import { FaArrowLeft } from 'react-icons/fa';
 import {
 	StyledCardStatus,
 	StyledCardTitle,
@@ -11,7 +13,6 @@ import {
 	StyledStatusColor,
 	StyledStatusText,
 } from './character-detail.style';
-import { FaArrowLeft } from 'react-icons/fa';
 import { CHARACTERS } from '../../mocks/characters.mock';
 import { getParsedEpisodes } from '../../utils/character.utils';
 import { Status, StatusColor } from '../../enums/status.enum';
@@ -24,10 +25,11 @@ const getPropertySection = (title: string, value: string): JSX.Element => (
 );
 
 const CharacterDetail = () => {
-	const { name, location, episode, image, species, status } = CHARACTERS[0];
+	const { id } = useParams();
+	const { name, location, episode, image, species, status } = CHARACTERS[Number(id)];
 	const episodes = getParsedEpisodes(episode);
-
 	// TODO request more information about location and episodes
+
 	return (
 		<>
 			<StyledReactLink to="../.." relative="path">
