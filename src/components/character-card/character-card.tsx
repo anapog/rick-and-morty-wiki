@@ -1,0 +1,54 @@
+import { Status, StatusColor } from '../../enums/status.enum';
+import { Character } from '../../models/character.model';
+import {
+	StyledStatusColor,
+	StyledStatusText,
+	StyledCharacterAvatar,
+	StyledCharacterDescription,
+	StyledCharacterCard,
+	StyledPropertySection,
+	StyledSectionProperty,
+	StyledCardStatus,
+	StyledCardTitle,
+	StyledSectionValue,
+} from './character-card.style';
+
+const getParsedEpisodes = (list: string[]): string[] => {
+	const listToDisplay = list?.map((episode: string) => episode.split('/').slice(-1)[0]);
+	return listToDisplay.filter(item => item && item.length);
+};
+
+const getPropertySection = (title: string, value: string): JSX.Element => (
+	<StyledPropertySection>
+		<StyledSectionProperty>{title}</StyledSectionProperty>
+		<StyledSectionValue>{value}</StyledSectionValue>
+	</StyledPropertySection>
+);
+
+const CharacterCard = ({ episode, image, name, status, species, location }: Character) => {
+	const episodes = getParsedEpisodes(episode);
+
+	return (
+		<StyledCharacterCard>
+			<StyledCharacterAvatar src={image} alt="Character image" />
+			<StyledCharacterDescription>
+				<StyledCardTitle>{name}</StyledCardTitle>
+				<StyledCardStatus>
+					<StyledStatusColor
+						style={{ background: StatusColor[status.toLowerCase() as Status] ?? 'grey' }}
+					></StyledStatusColor>
+					<StyledStatusText>
+						{status} - {species}
+					</StyledStatusText>
+				</StyledCardStatus>
+				{getPropertySection('Location:', location?.name ?? 'Unknown')}
+				{getPropertySection(
+					`${episodes?.length > 1 ? 'Episodes' : 'Episode'}:`,
+					episodes.length ? episodes.join(', ') : 'Unknown'
+				)}
+			</StyledCharacterDescription>
+		</StyledCharacterCard>
+	);
+};
+
+export default CharacterCard;

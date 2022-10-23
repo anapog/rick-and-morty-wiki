@@ -1,10 +1,5 @@
-import Sample from './components/sample';
+import Home from './components/home';
 
-/**
- * This is the entry point of the App, feel free to
- * modify this file as you want!
- *
- */
-const App = () => <Sample />;
+const App = () => <Home />;
 
 export default App;
