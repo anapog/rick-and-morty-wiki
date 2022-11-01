@@ -13,7 +13,6 @@ export const StyledHeader = styled.div`
 	display: flex;
 	justify-content: center;
 	padding-bottom: ${rem(24)};
-	font-family: 'Inter';
 `;
 
 export const StyledLogo = styled.img`
@@ -26,6 +25,9 @@ export const StyledContent = styled.div`
 	display: flex;
 	flex-direction: column;
 	margin: auto;
-	max-width: 85rem;
 	width: 100%;
+
+	@media (min-width: 769px) {
+		width: auto;
+	}
 `;

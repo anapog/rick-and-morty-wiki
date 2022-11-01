@@ -2,8 +2,8 @@ import { Navigate, BrowserRouter, Route, Routes } from 'react-router-dom';
 import { ApolloProvider } from '@apollo/client';
 import { StyledContainer, StyledHeader, StyledContent, StyledLogo } from './home.style';
 import logo from './rickAndMorty.png';
-import CharacterList from '../character-list/character-list';
-import CharacterDetail from '../character-detail/character-detail';
+import CharacterList from '../../components/character-list/character-list';
+import CharacterDetail from '../../components/character-detail/character-detail';
 import { client } from '../../services/apollo-client';
 
 const Home = () => (

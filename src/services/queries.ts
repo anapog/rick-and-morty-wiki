@@ -12,7 +12,6 @@ export const GET_CHARACTERS = gql`
 				name
 				status
 				species
-				gender
 				image
 				episode {
 					air_date

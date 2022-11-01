@@ -17,13 +17,13 @@ export const StyledListControl = styled.div`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding-bottom: ${rem(10)};
+	padding-bottom: ${rem(24)};
 `;
 
 export const StyledListContent = styled.div`
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(161px, 1fr));
-	grid-gap: ${rem(48)};
+	grid-gap: ${rem(82)};
 	margin-bottom: ${rem(48)};
 
 	@media (min-width: 769px) {
@@ -32,5 +32,9 @@ export const StyledListContent = styled.div`
 
 	@media (min-width: 1025px) {
 		grid-template-columns: repeat(4, 1fr);
+	}
+
+	@media (min-width: 1201px) {
+		grid-template-columns: repeat(5, 1fr);
 	}
 `;

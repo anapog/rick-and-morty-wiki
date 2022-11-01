@@ -3,47 +3,42 @@ import { Status, StatusColor } from '../../enums/status.enum';
 import { Character } from '../../models/character.model';
 import {
 	StyledStatusColor,
-	StyledStatusText,
+	StyledPropValue,
 	StyledCharacterAvatar,
 	StyledCharacterDescription,
 	StyledCharacterCard,
-	StyledPropertySection,
-	StyledSectionProperty,
 	StyledCardStatus,
 	StyledCardTitle,
-	StyledSectionValue,
 } from './character-card.style';
 
-const getPropertySection = (title: string, value: string): JSX.Element => (
-	<StyledPropertySection>
-		<StyledSectionProperty>{title}</StyledSectionProperty>
-		<StyledSectionValue>{value}</StyledSectionValue>
-	</StyledPropertySection>
-);
-
-const CharacterCard = ({ id, name, status, species, gender, image, episode }: Character) => {
+const CharacterCard = ({ id, name, status, species, image, episode }: Character) => {
 	const navigate = useNavigate();
 
 	const navigateToDetail = () => {
 		navigate(`/character/${id}`);
 	};
 
+	const getCardStatus = (): JSX.Element => (
+		<StyledCardStatus>
+			<StyledStatusColor
+				style={{ background: StatusColor[status.toLowerCase() as Status] ?? StatusColor.unknown }}
+			></StyledStatusColor>
+			<StyledPropValue>
+				{status} - {species}
+			</StyledPropValue>
+		</StyledCardStatus>
+	);
+
+	const getEpisodeMsg = (): string =>
+		episode?.length === 1 ? `${episode.length} episode` : `${episode.length ?? 0} episodes`;
+
 	return (
 		<StyledCharacterCard onClick={navigateToDetail}>
 			<StyledCharacterAvatar src={image} alt="Character image" />
 			<StyledCharacterDescription>
 				<StyledCardTitle>{name}</StyledCardTitle>
-				<StyledCardStatus>
-					<StyledStatusColor
-						style={{ background: StatusColor[status.toLowerCase() as Status] ?? 'grey' }}
-					></StyledStatusColor>
-					<StyledStatusText>
-						{status} - {species}
-					</StyledStatusText>
-				</StyledCardStatus>
-				{getPropertySection('Gender:', gender)}
-				{getPropertySection('Episodes:', `${episode?.length}` ?? 'Unknown')}
-				{getPropertySection('Since:', `${episode[0].air_date}`)}
+				{getCardStatus()}
+				<StyledPropValue>{getEpisodeMsg()}</StyledPropValue>
 			</StyledCharacterDescription>
 		</StyledCharacterCard>
 	);
